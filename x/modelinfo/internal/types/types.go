@@ -33,7 +33,7 @@ type ModelInfo struct {
 	Description              string         `json:"description"`
 	SKU                      string         `json:"sku"`
 	HardwareVersion          string         `json:"hardware_version"`
-	FirmwareVersion          string         `json:"firmware_version"`
+	SoftwareVersion          string         `json:"software_version"`
 	OtaURL                   string         `json:"ota_url,omitempty"`
 	OtaChecksum              string         `json:"ota_checksum,omitempty"`
 	OtaChecksumType          string         `json:"ota_checksum_type,omitempty"`
@@ -51,7 +51,7 @@ func NewModelInfo(
 	description string,
 	sku string,
 	hardwareVersion string,
-	firmwareVersion string,
+	softwareVersion string,
 	otaURL string,
 	otaChecksum string,
 	otaChecksumType string,
@@ -68,7 +68,7 @@ func NewModelInfo(
 		Description:              description,
 		SKU:                      sku,
 		HardwareVersion:          hardwareVersion,
-		FirmwareVersion:          firmwareVersion,
+		SoftwareVersion:          softwareVersion,
 		OtaURL:                   otaURL,
 		OtaChecksum:              otaChecksum,
 		OtaChecksumType:          otaChecksumType,

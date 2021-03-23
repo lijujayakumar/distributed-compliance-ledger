@@ -52,7 +52,7 @@ func TestQuerier_QueryModel(t *testing.T) {
 	require.Equal(t, receivedModelInfo.Description, modelInfo.Description)
 	require.Equal(t, receivedModelInfo.SKU, modelInfo.SKU)
 	require.Equal(t, receivedModelInfo.HardwareVersion, modelInfo.HardwareVersion)
-	require.Equal(t, receivedModelInfo.FirmwareVersion, modelInfo.FirmwareVersion)
+	require.Equal(t, receivedModelInfo.SoftwareVersion, modelInfo.SoftwareVersion)
 	require.Equal(t, receivedModelInfo.OtaURL, modelInfo.OtaURL)
 	require.Equal(t, receivedModelInfo.OtaChecksum, modelInfo.OtaChecksum)
 	require.Equal(t, receivedModelInfo.OtaChecksumType, modelInfo.OtaChecksumType)

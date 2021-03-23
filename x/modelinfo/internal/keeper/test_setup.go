@@ -73,7 +73,7 @@ func DefaultModelInfo() types.ModelInfo {
 		Description:              testconstants.Description,
 		SKU:                      testconstants.SKU,
 		HardwareVersion:          testconstants.HardwareVersion,
-		FirmwareVersion:          testconstants.FirmwareVersion,
+		SoftwareVersion:          testconstants.SoftwareVersion,
 		OtaURL:                   testconstants.OtaURL,
 		OtaChecksum:              testconstants.OtaChecksum,
 		OtaChecksumType:          testconstants.OtaChecksumType,
