@@ -61,7 +61,7 @@ func handleMsgAddModelInfo(ctx sdk.Context, keeper keeper.Keeper, authKeeper aut
 		msg.Description,
 		msg.SKU,
 		msg.HardwareVersion,
-		msg.FirmwareVersion,
+		msg.SoftwareVersion,
 		msg.OtaURL,
 		msg.OtaChecksum,
 		msg.OtaChecksumType,

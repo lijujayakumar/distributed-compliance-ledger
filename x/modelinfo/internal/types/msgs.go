@@ -30,7 +30,7 @@ type MsgAddModelInfo struct {
 	Description              string         `json:"description"`
 	SKU                      string         `json:"sku"`
 	HardwareVersion          string         `json:"hardware_version"`
-	FirmwareVersion          string         `json:"firmware_version"`
+	SoftwareVersion          string         `json:"software_version"`
 	OtaURL                   string         `json:"ota_url,omitempty"`
 	OtaChecksum              string         `json:"ota_checksum,omitempty"`
 	OtaChecksumType          string         `json:"ota_checksum_type,omitempty"`
@@ -48,7 +48,7 @@ func NewMsgAddModelInfo(
 	description string,
 	sku string,
 	hardwareVersion string,
-	firmwareVersion string,
+	softwareVersion string,
 	otaURL string,
 	otaChecksum string,
 	otaChecksumType string,
@@ -65,7 +65,7 @@ func NewMsgAddModelInfo(
 		Description:              description,
 		SKU:                      sku,
 		HardwareVersion:          hardwareVersion,
-		FirmwareVersion:          firmwareVersion,
+		SoftwareVersion:          softwareVersion,
 		OtaURL:                   otaURL,
 		OtaChecksum:              otaChecksum,
 		OtaChecksumType:          otaChecksumType,
@@ -112,8 +112,8 @@ func (m MsgAddModelInfo) ValidateBasic() sdk.Error {
 		return sdk.ErrUnknownRequest("Invalid HardwareVersion: it cannot be empty")
 	}
 
-	if len(m.FirmwareVersion) == 0 {
-		return sdk.ErrUnknownRequest("Invalid FirmwareVersion: it cannot be empty")
+	if len(m.SoftwareVersion) == 0 {
+		return sdk.ErrUnknownRequest("Invalid SoftwareVersion: it cannot be empty")
 	}
 
 	if m.OtaURL != "" || m.OtaChecksum != "" || m.OtaChecksumType != "" {

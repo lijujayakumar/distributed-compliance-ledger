@@ -487,7 +487,7 @@ func addModel(setup TestSetup, vid uint16, pid uint16) (uint16, uint16) {
 		Description:              constants.Description,
 		SKU:                      constants.SKU,
 		HardwareVersion:          constants.HardwareVersion,
-		FirmwareVersion:          constants.FirmwareVersion,
+		SoftwareVersion:          constants.SoftwareVersion,
 		OtaURL:                   constants.OtaURL,
 		OtaChecksum:              constants.OtaChecksum,
 		OtaChecksumType:          constants.OtaChecksumType,

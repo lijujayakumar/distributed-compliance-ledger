@@ -26,7 +26,7 @@ import (
 func TestNewMsgAddModelInfo(t *testing.T) {
 	msg := NewMsgAddModelInfo(testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 		testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-		testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+		testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 		testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)
 
 	require.Equal(t, msg.Route(), RouterKey)
@@ -43,47 +43,47 @@ func TestMsgAddModelInfoValidation(t *testing.T) {
 		{true, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			0, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, 0, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{true, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, 0, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{true, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, "",
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			"", testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, "", testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, "", testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, "",
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
@@ -93,52 +93,52 @@ func TestMsgAddModelInfoValidation(t *testing.T) {
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, "", testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, "", testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, "", testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, "", testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, "",
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, "",
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, "", "", testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, "", "", testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, "", testconstants.OtaChecksum, "",
+			testconstants.SoftwareVersion, "", testconstants.OtaChecksum, "",
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, "", "",
+			testconstants.SoftwareVersion, testconstants.OtaURL, "", "",
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{true, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, "", "", "",
+			testconstants.SoftwareVersion, "", "", "",
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{true, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			"", testconstants.TisOrTrpTestingCompleted, testconstants.Signer)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, nil)},
 		{false, NewMsgAddModelInfo(
 			testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 			testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-			testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+			testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 			testconstants.Custom, testconstants.TisOrTrpTestingCompleted, []byte{})},
 	}
 
@@ -156,7 +156,7 @@ func TestMsgAddModelInfoValidation(t *testing.T) {
 func TestMsgAddModelInfoGetSignBytes(t *testing.T) {
 	msg := NewMsgAddModelInfo(testconstants.VID, testconstants.PID, testconstants.CID, testconstants.Version,
 		testconstants.Name, testconstants.Description, testconstants.SKU, testconstants.HardwareVersion,
-		testconstants.FirmwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
+		testconstants.SoftwareVersion, testconstants.OtaURL, testconstants.OtaChecksum, testconstants.OtaChecksumType,
 		testconstants.Custom, testconstants.TisOrTrpTestingCompleted, testconstants.Signer)
 
 	expected := `{"type":"modelinfo/AddModelInfo","value":{` +

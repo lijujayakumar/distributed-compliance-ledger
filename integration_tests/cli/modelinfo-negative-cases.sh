@@ -80,10 +80,10 @@ result=$(echo "test1234" | dclcli tx modelinfo add-model --vid=$vid --pid=$pid -
 check_response_and_report "$result" "Code: 6"
 check_response_and_report "$result" "Invalid HardwareVersion"
 
-echo "Add model with epmty Firmwere Version"
+echo "Add model with empty Software Version"
 result=$(echo "test1234" | dclcli tx modelinfo add-model --vid=$vid --pid=$pid --name="Name" --description="Description" --sku="SKU12FS" --hardware-version="1.1" --firmware-version="" --tis-or-trp-testing-completed=true --from $vendor_account --yes 2>&1) || true
 check_response_and_report "$result" "Code: 6"
-check_response_and_report "$result" "Invalid FirmwareVersion"
+check_response_and_report "$result" "Invalid SoftwareVersion"
 
 echo "Add model with Invalid TIS flag"
 result=$(echo "test1234" | dclcli tx modelinfo add-model --vid=$vid --pid=$pid --name="Name" --description="Description" --sku="SKU12FS" --hardware-version="1.1" --firmware-version="2.0" --tis-or-trp-testing-completed="string" --from $vendor_account --yes 2>&1) || true

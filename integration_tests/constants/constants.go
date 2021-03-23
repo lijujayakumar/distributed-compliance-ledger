@@ -42,7 +42,7 @@ var (
 	Description                     = "Device Description"
 	SKU                             = "RCU2205A"
 	HardwareVersion                 = "1.1"
-	FirmwareVersion                 = "2.0"
+	SoftwareVersion                 = "2.0"
 	OtaURL                          = "http://ota.firmware.com"
 	OtaChecksum                     = "0xe3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 	OtaChecksumType                 = "SHA-256"

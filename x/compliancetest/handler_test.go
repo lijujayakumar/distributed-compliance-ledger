@@ -171,7 +171,7 @@ func addModel(setup TestSetup, vid uint16, pid uint16) (uint16, uint16) {
 		Description:              test_constants.Description,
 		SKU:                      test_constants.SKU,
 		HardwareVersion:          test_constants.HardwareVersion,
-		FirmwareVersion:          test_constants.FirmwareVersion,
+		SoftwareVersion:          test_constants.SoftwareVersion,
 		OtaURL:                   test_constants.OtaURL,
 		OtaChecksum:              test_constants.OtaChecksum,
 		OtaChecksumType:          test_constants.OtaChecksumType,

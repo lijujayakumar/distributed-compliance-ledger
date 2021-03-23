@@ -86,7 +86,7 @@ func GetCmdAddModel(cdc *codec.Codec) *cobra.Command {
 
 			hardwareVersion := viper.GetString(FlagHardwareVersion)
 
-			firmwareVersion := viper.GetString(FlagFirmwareVersion)
+			softwareVersion := viper.GetString(FlagSoftwareVersion)
 			otaURL := viper.GetString(FlagOtaURL)
 			otaChecksum := viper.GetString(FlagOtaChecksum)
 			otaChecksumType := viper.GetString(FlagOtaChecksumType)
@@ -106,7 +106,7 @@ func GetCmdAddModel(cdc *codec.Codec) *cobra.Command {
 			}
 
 			msg := types.NewMsgAddModelInfo(vid, pid, cid, version, name, description, sku,
-				hardwareVersion, firmwareVersion, otaURL, otaChecksum, otaChecksumType,
+				hardwareVersion, softwareVersion, otaURL, otaChecksum, otaChecksumType,
 				custom, tisOrTrpTestingCompleted, cliCtx.FromAddress())
 
 			return cliCtx.HandleWriteMessage(msg)
@@ -124,7 +124,7 @@ func GetCmdAddModel(cdc *codec.Codec) *cobra.Command {
 	cmd.Flags().String(FlagSKU, "", "Model stock keeping unit")
 	cmd.Flags().StringP(FlagHardwareVersion, FlagHardwareVersionShortcut, "",
 		"Version of model hardware")
-	cmd.Flags().StringP(FlagFirmwareVersion, FlagFirmwareVersionShortcut, "",
+	cmd.Flags().StringP(FlagSoftwareVersion, FlagSoftwareVersionShortcut, "",
 		"Version of model firmware")
 	cmd.Flags().String(FlagOtaURL, "", "URL of the OTA")
 	cmd.Flags().String(FlagOtaChecksum, "", "Checksum of the OTA")
@@ -140,7 +140,7 @@ func GetCmdAddModel(cdc *codec.Codec) *cobra.Command {
 	_ = cmd.MarkFlagRequired(FlagDescription)
 	_ = cmd.MarkFlagRequired(FlagSKU)
 	_ = cmd.MarkFlagRequired(FlagHardwareVersion)
-	_ = cmd.MarkFlagRequired(FlagFirmwareVersion)
+	_ = cmd.MarkFlagRequired(FlagSoftwareVersion)
 	_ = cmd.MarkFlagRequired(FlagTisOrTrpTestingCompleted)
 
 	return cmd

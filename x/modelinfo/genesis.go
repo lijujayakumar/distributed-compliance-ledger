@@ -57,8 +57,8 @@ func ValidateGenesis(data GenesisState) error {
 			return sdk.ErrUnknownRequest(fmt.Sprintf("Invalid ModelInfo: Missed HardwareVersion. Value: %v", record))
 		}
 
-		if record.FirmwareVersion == "" {
-			return sdk.ErrUnknownRequest(fmt.Sprintf("Invalid ModelInfo: Missed FirmwareVersion. Value: %v", record))
+		if record.SoftwareVersion == "" {
+			return sdk.ErrUnknownRequest(fmt.Sprintf("Invalid ModelInfo: Missed SoftwareVersion. Value: %v", record))
 		}
 
 		if record.Owner.Empty() {

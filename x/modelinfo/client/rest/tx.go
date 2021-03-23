@@ -34,7 +34,7 @@ type AddModelInfoRequest struct {
 	Description              string            `json:"description"`
 	SKU                      string            `json:"sku"`
 	HardwareVersion          string            `json:"hardware_version"`
-	FirmwareVersion          string            `json:"firmware_version"`
+	SoftwareVersion          string            `json:"software_version"`
 	OtaURL                   string            `json:"ota_url,omitempty"`
 	OtaChecksum              string            `json:"ota_checksum,omitempty"`
 	OtaChecksumType          string            `json:"ota_checksum_type,omitempty"`
@@ -75,7 +75,7 @@ func addModelHandler(cliCtx context.CLIContext) http.HandlerFunc {
 
 		msg := types.NewMsgAddModelInfo(req.VID, req.PID, req.CID, req.Version,
 			req.Name, req.Description, req.SKU, req.HardwareVersion,
-			req.FirmwareVersion, req.OtaURL, req.OtaChecksum, req.OtaChecksumType,
+			req.SoftwareVersion, req.OtaURL, req.OtaChecksum, req.OtaChecksumType,
 			req.Custom, req.TisOrTrpTestingCompleted, restCtx.Signer())
 
 		restCtx.HandleWriteRequest(msg)
